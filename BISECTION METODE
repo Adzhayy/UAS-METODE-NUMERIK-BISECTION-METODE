@@ -1,0 +1,21 @@
+# Definisi fungsi
+def f(x):
+    return x**3 - 9*x + 1.8
+
+# Metode bisection
+def bisection_method(f, a, b, tol):
+    while abs(b - a) > tol:
+        x_mid = (a + b) / 2
+        if f(a) * f(x_mid) < 0:
+            b = x_mid
+        else:
+            a = x_mid
+    return (a + b) / 2
+
+# Parameter awal
+a, b = 0, 1  # Interval awal
+tol = 1e-5   # Toleransi
+
+# Hitung akar
+root = bisection_method(f, a, b, tol)
+print(f"Akar persamaan adalah x ≈ {root:.5f}")
